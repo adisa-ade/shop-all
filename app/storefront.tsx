@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import { signOut } from "next-auth/react";
 import { useMemo, useState } from "react";
 import { useCart } from "@/lib/cart";
 import { products, type Product } from "@/lib/products";
 
 const categories = ["All objects", "Lighting", "Tabletop", "Textiles"];
 
-export default function Storefront() {
+export default function Storefront({ user }: { user: { name: string } | null }) {
   const [cart, setCart] = useCart();
   const [activeCategory, setActiveCategory] = useState("All objects");
   const [search, setSearch] = useState("");
@@ -48,7 +49,10 @@ export default function Storefront() {
           <a href="#collection">Shop all</a><a href="#story">Our point of view</a><a href="#newsletter">Journal</a>
         </nav>
         <div className="header-actions">
-          <Link className="account-link" href="/signin">Sign in</Link>
+          {user ? <>
+            <span className="account-name">{user.name}</span>
+            <button className="account-link signout-button" type="button" onClick={() => signOut({ callbackUrl: "/" })}>Sign out</button>
+          </> : <Link className="account-link" href="/signin">Sign in</Link>}
           <button className="bag-trigger" type="button" onClick={() => setBagOpen(true)} aria-label={`Open bag, ${itemCount} items`}>
             Bag <span className="bag-count">{itemCount}</span>
           </button>

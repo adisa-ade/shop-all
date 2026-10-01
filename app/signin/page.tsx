@@ -1,15 +1,11 @@
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import { authOptions } from "@/lib/auth";
+import { authOptions, isAuthConfigured } from "@/lib/auth";
 import GoogleButton from "./google-button";
 
 export default async function SignInPage() {
-  const googleConfigured = Boolean(
-    process.env.GOOGLE_CLIENT_ID &&
-    process.env.GOOGLE_CLIENT_SECRET &&
-    process.env.NEXTAUTH_SECRET,
-  );
+  const googleConfigured = isAuthConfigured();
   const session = googleConfigured ? await getServerSession(authOptions) : null;
   if (session) redirect("/");
 

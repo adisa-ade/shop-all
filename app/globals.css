@@ -34,6 +34,8 @@ button { color: inherit; }
 .main-nav { display: flex; justify-content: center; align-items: center; gap: 39px; }
 .main-nav a, .account-link { font-size: 11px; color: #414b43; transition: color .2s ease; }
 .main-nav a:hover, .account-link:hover, .site-footer a:hover { color: var(--clay); }
+.account-name { max-width: 130px; overflow: hidden; color: var(--muted); font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+.signout-button { border: 0; padding: 8px 0; background: transparent; cursor: pointer; }
 .header-actions { display: flex; justify-content: flex-end; align-items: center; gap: 25px; }
 .bag-trigger { padding: 8px 0; border: 0; background: transparent; cursor: pointer; font-size: 11px; }
 .bag-count { display: inline-grid; width: 19px; height: 19px; margin-left: 4px; place-items: center; border-radius: 50%; background: #e9e6dc; font-size: 9px; }
