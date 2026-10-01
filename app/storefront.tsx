@@ -58,7 +58,7 @@ export default function Storefront() {
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-image" role="img" aria-label="Sunlit living room with sculptural furniture" />
         <div className="hero-copy">
-          <p className="eyebrow">A softer kind of everyday</p>
+          <p className="eyebrow">A softer kind of everyday.</p>
           <h1 id="hero-title">Make room<br />for <em>meaning.</em></h1>
           <p className="hero-description">Useful objects with a little more soul. Considered in form, honest in material, and made for the rituals that make a home.</p>
           <a className="button button-dark" href="#collection">Explore the collection <span aria-hidden="true">↘</span></a>
